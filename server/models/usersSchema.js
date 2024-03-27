@@ -19,11 +19,8 @@ const usersSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    cpassword: {
-      type: String,
-      required: true,
-    },
-    profileImage: {
+
+    profileImagePath: {
       type: String,
       default: "",
     },
@@ -44,9 +41,8 @@ const usersSchema = new mongoose.Schema(
       default: [],
     },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 const users = new mongoose.model("users", usersSchema);
 module.exports = users;
-
