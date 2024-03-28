@@ -4,21 +4,19 @@ import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import "react-toastify/dist/ReactToastify.css";
-
+import ListingPage from "./pages/ListingPage";
 
 function App() {
-  return(
+  return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-    </Routes>
-  </BrowserRouter>
-
-  )
- 
-
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/create-listing" element={<ListingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
