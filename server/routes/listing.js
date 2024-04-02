@@ -65,7 +65,9 @@ router.post("/create", upload.array("listingPhotos"), async (req, res) => {
       price,
     });
     await newListing.save();
-    res.status(200).json({ message: "listing created successfully", newListing });
+    res
+      .status(200)
+      .json({ message: "listing created successfully", newListing });
   } catch (error) {
     res
       .status(400)
@@ -75,7 +77,7 @@ router.post("/create", upload.array("listingPhotos"), async (req, res) => {
 });
 
 // get listing by category
-router.get("/", async (res, req) => {
+router.get("/", async (req, res) => {
   const qCategory = req.query.category;
   try {
     let listings;
@@ -86,11 +88,11 @@ router.get("/", async (res, req) => {
     } else {
       listings = await listingDB.find().populate("creator");
     }
-    res.status(200).json("msg : all listings", listings);
+    res.status(200).json(listings);
   } catch (error) {
     console.log(error);
     res
-      .status(200)
+      .status(400)
       .json({ msg: "fail to get listings list", error: error.mesasge });
   }
 });
